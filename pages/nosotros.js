@@ -1,14 +1,15 @@
 import React from "react";
 import Layout from "../components/layouts/Layout";
+import styled from "@emotion/styled";
 
-const Home = () => {
+const Nosotros = () => {
   return (
     <div>
       <Layout>
-        <h1>Inicio</h1>
+        <h1>Nosotros</h1>
       </Layout>
     </div>
   );
 };
 
-export default Home;
+export default Nosotros;
