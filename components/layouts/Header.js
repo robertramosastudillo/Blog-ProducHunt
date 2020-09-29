@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Buscar from "../ui/Buscar";
 import Navegacion from "./Navegacion";
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { css } from "@emotion/core";
+import Boton from "../ui/Boton";
 
 const ContenedorHeader = styled.div`
   max-width: 1200px;
@@ -25,6 +26,8 @@ const Logo = styled.p`
 `;
 
 const Header = () => {
+  const usuario = false;
+
   return (
     <header
       css={css`
@@ -33,18 +36,42 @@ const Header = () => {
       `}
     >
       <ContenedorHeader>
-        <div>
+        <div css={css`
+        display: flex;
+        align-items: center;`}>
           <Link href="/">
             <Logo>P</Logo>
           </Link>
           <Buscar />
           <Navegacion />
         </div>
-        <div>
-          <p>Hola: Robert</p>
-          <button type="button">Cerrar Sesión</button>
-          <Link href="/">Login</Link>
-          <Link href="/">Crear Cuenta</Link>
+        <div
+          css={css`
+            display: flex;
+            align-items: center;
+          `}
+        >
+          {usuario ? (
+            <Fragment>
+              <p
+                css={css`
+                  margin-right: 2rem;
+                `}
+              >
+                Hola: Robert
+              </p>
+              <Boton bgColor="true">Cerrar Sesión</Boton>
+            </Fragment>
+          ) : (
+            <Fragment>
+              <Link href="/login">
+                <Boton bgColor="true">Login</Boton>
+              </Link>
+              <Link href="/crear-cuenta">
+                <Boton>Crear Cuenta</Boton>
+              </Link>
+            </Fragment>
+          )}
         </div>
       </ContenedorHeader>
     </header>
