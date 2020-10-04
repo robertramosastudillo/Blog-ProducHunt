@@ -5,7 +5,7 @@ import Link from "next/link";
 import styled from "@emotion/styled";
 import { css } from "@emotion/core";
 import Boton from "../ui/Boton";
-import { FirebaseContext } from '../../firebase'
+import { FirebaseContext } from "../../firebase";
 
 const ContenedorHeader = styled.div`
   max-width: 1200px;
@@ -17,7 +17,7 @@ const ContenedorHeader = styled.div`
   }
 `;
 
-const Logo = styled.p`
+const Logo = styled.a`
   color: var(--naranja);
   font-size: 4rem;
   line-height: 0;
@@ -27,8 +27,7 @@ const Logo = styled.p`
 `;
 
 const Header = () => {
-
-  const {usuario, firebase} = useContext(FirebaseContext);
+  const { usuario, firebase } = useContext(FirebaseContext);
 
   return (
     <header
