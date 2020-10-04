@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { css } from "@emotion/core";
-import Router from 'next/router';
+import Router from "next/router";
 import Layout from "../components/layouts/Layout";
 import {
   Formulario,
@@ -9,7 +9,7 @@ import {
   Error,
 } from "../components/ui/Formulario";
 
-import firebase from "../firebase";
+import firebase from "../firebase/index";
 
 // Validaciones
 import useValidacion from "../hooks/useValidacion";
@@ -22,7 +22,6 @@ const STATE_INICIAL = {
 };
 
 const CrearCuenta = () => {
-
   const [error, guardarError] = useState(false);
 
   const {
@@ -37,13 +36,12 @@ const CrearCuenta = () => {
 
   async function crearCuenta() {
     try {
-        await firebase.registrar(nombre, email, password);
-        Router.push('/');
+      await firebase.registrar(nombre, email, password);
+      Router.push("/");
     } catch (error) {
-      console.log('Hubo un error al crear el usuario', error.message);
+      console.log("Hubo un error al crear el usuario", error.message);
       guardarError(error.message);
     }
-  
   }
 
   return (

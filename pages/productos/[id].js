@@ -4,7 +4,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { es } from "date-fns/locale";
 
 import Layout from "../../components/layouts/Layout";
-import { FirebaseContext } from "../../firebase";
+import { FirebaseContext } from "../../firebase/index";
 import Error404 from "../../components/layouts/404";
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";

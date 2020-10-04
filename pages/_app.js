@@ -1,4 +1,4 @@
-import firebase, { FirebaseContext } from "../firebase";
+import firebase, { FirebaseContext } from "../firebase/index";
 import useAutenticacion from "../hooks/useAutenticacion";
 
 const MyApp = (props) => {
@@ -9,12 +9,12 @@ const MyApp = (props) => {
     <FirebaseContext.Provider
       value={{
         firebase,
-        usuario
+        usuario,
       }}
     >
       <Component {...pageProps} />
     </FirebaseContext.Provider>
   );
-}
+};
 
 export default MyApp;
